@@ -1,7 +1,7 @@
 import { inspect } from 'util';
 import { PactV3 } from '@pact-foundation/pact';
 import { JsonMap } from '@pact-foundation/pact/src/common/jsonTypes';
-import { ApplicationParams, CDQParams, ComponentsParams } from './state-params';
+import { ApplicationParams, CDQParams, ComponentsParams } from '../state-params';
 
 /**
  * This enum contains definitions for all provider states used by hac-dev

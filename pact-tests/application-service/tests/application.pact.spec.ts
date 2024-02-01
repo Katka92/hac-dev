@@ -1,13 +1,8 @@
 import { pactWith } from 'jest-pact/dist/v3';
-import { createContract } from './contracts/application-service/application-create';
-import {
-  comp1,
-  compParams,
-  getAppParams,
-  getContract,
-} from './contracts/application-service/application-get';
-import { mockK8sCreateResource, mockK8sWatchResource } from './contracts/contracts';
-import { ProviderStates, setState } from './states/states';
+import { mockK8sCreateResource, mockK8sWatchResource } from '../../contracts';
+import { ProviderStates, setState } from '../application-service-states';
+import { createContract } from '../contracts/application-create';
+import { comp1, compParams, getAppParams, getContract } from '../contracts/application-get';
 
 pactWith({ consumer: 'HACdev', provider: 'HAS' }, (interaction) => {
   interaction('Application creation', ({ provider, execute }) => {

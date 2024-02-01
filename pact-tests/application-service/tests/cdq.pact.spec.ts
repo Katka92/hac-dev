@@ -1,8 +1,8 @@
 import { pactWith } from 'jest-pact/dist/v3';
-import { createContract } from './contracts/application-service/cdq-create';
-import { cdqParams, getContract } from './contracts/application-service/cdq-get';
-import { mockK8sCreateResource, mockK8sWatchResource } from './contracts/contracts';
-import { ProviderStates, setState } from './states/states';
+import { mockK8sCreateResource, mockK8sWatchResource } from '../../contracts';
+import { ProviderStates, setState } from '../application-service-states';
+import { createContract } from '../contracts/cdq-create';
+import { cdqParams, getContract } from '../contracts/cdq-get';
 
 pactWith({ consumer: 'HACdev', provider: 'HAS' }, (interaction) => {
   interaction('Creation of CDQ', ({ provider, execute }) => {

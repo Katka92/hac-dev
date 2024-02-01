@@ -1,6 +1,6 @@
 import { pactWith } from 'jest-pact/dist/v3';
-import { mockK8sCreateResource } from './contracts/contracts';
-import { contract } from './contracts/service-provider-integration/spiaccesscheck';
+import { mockK8sCreateResource } from '../../contracts';
+import { contract } from '../contracts/spiaccesscheck';
 
 pactWith({ consumer: 'HACdev', provider: 'SPI' }, (interaction) => {
   interaction('Create spiaccesscheck', ({ provider, execute }) => {

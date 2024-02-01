@@ -4,8 +4,8 @@ import {
   ComponentDetectionQueryModel,
 } from '../../../src/models';
 import { ComponentDetectionQueryKind } from '../../../src/types';
+import { PactContract, getUrlPath } from '../../contracts';
 import { matchers } from '../../matchers';
-import { PactContract, getUrlPath } from '../contracts';
 
 const namespace = 'default';
 const cdq = 'mycdq';

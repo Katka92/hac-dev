@@ -1,8 +1,8 @@
 import { like, regex } from '@pact-foundation/pact/src/v3/matchers';
 import { SPIAccessCheckGroupVersionKind, SPIAccessCheckModel } from '../../../src/models';
 import { SPIAccessCheckKind } from '../../../src/types';
+import { PactContract, getUrlPath } from '../../contracts';
 import { matchers } from '../../matchers';
-import { PactContract, getUrlPath } from '../contracts';
 
 const namespace = 'default';
 const name = 'test-name-';
