@@ -11,7 +11,6 @@ import {
   getRandomSvgNumber,
   THUMBNAIL_ANNOTATION,
 } from '../components/ApplicationDetails/ApplicationThumbnail';
-import { ImportSecret } from '../components/ImportForm/utils/types';
 import {
   createRemoteSecretResource,
   getLabelsForSecret,
@@ -35,6 +34,7 @@ import {
   SecretTypeDropdownLabel,
   SecretKind,
   AddSecretFormValues,
+  ImportSecret,
 } from '../types';
 import { ComponentSpecs } from './../types/component';
 import { BuildRequest, BUILD_REQUEST_ANNOTATION } from './component-utils';
