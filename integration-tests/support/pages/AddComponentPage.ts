@@ -1,6 +1,6 @@
 import { Common } from '../../utils/Common';
 import { pageTitles } from '../constants/PageTitle';
-import { addComponentPagePO } from '../pageObjects/createApplication-po';
+import { addComponentPagePO, createApplicationPagePO } from '../pageObjects/createApplication-po';
 import { AbstractWizardPage } from './AbstractWizardPage';
 
 export class AddComponentPage extends AbstractWizardPage {
@@ -8,7 +8,7 @@ export class AddComponentPage extends AbstractWizardPage {
     cy.contains('div', addComponentPagePO.notValidatedMessage, { timeout: timeoutDuration });
   }
   waitRepoValidated(timeoutDuration: number = 140000) {
-    cy.contains('div', 'Access validated', { timeout: timeoutDuration });
+    cy.get(addComponentPagePO.enterSource).its('aria-invalid').should('be', 'false');
   }
 
   openSamplesPage() {

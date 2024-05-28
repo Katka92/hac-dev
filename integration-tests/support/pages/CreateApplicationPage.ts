@@ -4,6 +4,10 @@ import { createApplicationPagePO } from '../pageObjects/createApplication-po';
 import { AbstractWizardPage } from './AbstractWizardPage';
 
 export class CreateApplicationPage extends AbstractWizardPage {
+  waitAppCreated(applicationName: string) {
+    Common.verifyPageTitle(applicationName);
+  }
+
   getApplicationName() {
     return cy.get(createApplicationPagePO.applicationName);
   }
@@ -30,6 +34,10 @@ export class CreateApplicationPage extends AbstractWizardPage {
       Common.verifyPageTitle(pageTitles.createApp);
       Common.waitForLoad();
     });
+  }
+
+  clickAddComponent() {
+    cy.contains(createApplicationPagePO.addComponentButton).click({ force: true });
   }
 
   clickNext() {

@@ -39,7 +39,7 @@ describe('Basic Happy Path', () => {
   });
 
   it('Create an Application with a component', () => {
-    Applications.createApplication();
+    Applications.createApplication(applicationName);
     Applications.createComponent(publicRepo, componentName, applicationName);
     Applications.checkComponentInListView(
       componentName,

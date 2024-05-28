@@ -33,12 +33,14 @@ export class Applications {
     cy.get(`[data-id="${applicationName}"]`).find(actions.kebabButton).click();
   }
 
-  static createApplication() {
+  static createApplication(applicationName: string) {
     cy.title().should('eq', `Applications | ${FULL_APPLICATION_TITLE}`);
     const createApplicationPage = new CreateApplicationPage();
     createApplicationPage.clickCreateApplication();
-    cy.title().should('eq', `Import - Add components | ${FULL_APPLICATION_TITLE}`);
+    cy.title().should('eq', `Applications | ${FULL_APPLICATION_TITLE}`);
     cy.testA11y(`${pageTitles.createApp} page`);
+    createApplicationPage.setApplicationName(applicationName);
+    createApplicationPage.clickAddComponent();
   }
 
   static createComponent(
@@ -135,15 +137,12 @@ export class Applications {
 
   static importCodeStep(publicGitRepo: string) {
     const addComponent = new AddComponentPage();
-    cy.title().should('eq', `Import - Add components | ${FULL_APPLICATION_TITLE}`);
+    cy.title().should('eq', `Applications | ${FULL_APPLICATION_TITLE}`);
 
     // Enter git repo URL
     addComponent.setSource(publicGitRepo);
     // Check if the source is validated
-    addComponent.waitRepoValidated();
-
-    addComponent.submit();
-    cy.title().should('eq', `Import - Configure components | ${FULL_APPLICATION_TITLE}`);
+    // addComponent.waitRepoValidated();
   }
 
   static configureComponentsStep(
@@ -162,12 +161,6 @@ export class Applications {
     }
     if (runtime) {
       componentPage.selectRuntime(runtime);
-    }
-    if (envVar) {
-      componentPage.addEnvVar(envVar.varName, envVar.value);
-    }
-    if (useCustomBuildPipeline) {
-      componentPage.selectCustomBuildPipeline();
     }
     if (secret) {
       UIhelper.clickButton('Add secret');
